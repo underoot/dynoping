@@ -21,8 +21,4 @@ setInterval(() => {
 	req.end();
 }, DYNO_INTERVAL);
 
-if (require.main === module) {
-	server.listen(process.env.PORT)
-} else {
-	module.exports = server;
-}
+module.exports = server;
