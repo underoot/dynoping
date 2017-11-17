@@ -4,12 +4,12 @@ const DYNO_TIMEOUT = process.env.npm_config_dyno_timeout || 1000 * 60;
 
 const http = require('http');
 const server = http.createServer((req, res) => {
-	req.pipe(res);
+	res.end();
 });
 
 setInterval(() => {
 	const req = http.request({
-		method: 'HEAD',
+		method: 'GET',
 		host: DYNO_HOST,
 		timeout: DYNO_TIMEOUT
 	});
